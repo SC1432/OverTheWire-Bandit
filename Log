@@ -1,0 +1,309 @@
+Level 0
+Level 1 password: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR
+
+# Level 1
+Level 2 password: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+PK8fYLZg2hnHSz83plBL1iEPKdD3QToB
+
+Notes: To access hyphenated files, use path name
+./-file to access file called "-file"
+
+# Level 2
+Level 3 password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
+
+Notes: Use \ to indicate special character following (like space)
+
+# Level 3
+Level 4 password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq
+
+Notes: use "ls -a" to show hidden files (files with names that start with .)
+
+# Level 4
+Level 5 password: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG
+
+Notes:
+- Used the file command to show properties of the files in the current directory
+- ./* just means current directory (./) and all files (\*)
+``` shell
+file ./*
+```
+
+# Level 5
+Level 6 password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+pXa26xhMWaC2SvDotA4r9EgZkulOeSBW
+
+Notes: 
+- find . -type f -readable -size 1033c \\! -executable
+- Used the 'find' command to search through directories where the 
+	- 'find .' , '.' means search current directory and subdirectories
+	- '-type f' , return file types (not directories)
+	- '-readable' , readable by the current user
+	- '-size 1033c' , size of file is 1033 bytes (c)
+	- '\\! -executable' , file is not executable
+
+# Level 6
+Level 7 password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+Bmnnvf82KzQlfxgAI2d1zYbr1u9pr3E3
+
+Notes:
+- find / -size 33c -user bandit7 -group bandit6 -readable 2>/dev/null
+- Used the 'find' command to search through entire server 
+	- 'find \\' , '\\' start from root to search
+	- '-size 33c' , file is 33 bytes
+	- '-user bandit7' , owned by user bandit7
+	- '-group bandit6' , owned by group bandit6
+	- '-readable' , readable by current user
+	- '2>/dev/null' , silence all permission errors
+
+# Level 7
+Level 8 password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+VR1ljMayciFxbnUokuQmJFw6QC9VKtub
+
+Notes:
+- grep 'millionth' data.txt
+- Used the grep command to search the data.txt file for any line containing 'millionth'
+
+# Level 8
+Level 9 password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+EjmOSvuAu7sGAHqHVcBDPirRe9T03kxl
+
+Notes:
+- sort data.txt | uniq -u
+- 'sort data.txt' , puts together duplicates of the same lines
+- '| uniq -u' , '|' combines two commands together, 'uniq -u' filters out repeat lines. 
+
+# Level 9
+Level 10 password: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+B0s2khmbT9u0geKuOoVGW3JZKhndE3BG
+
+Notes:
+- strings data.txt | grep '\=='
+
+# Level 10
+Level 11 password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+pYfOY6HwUsDj5rL9UvyhU7MCmv8vN5Ro
+
+Notes:
+- base64 -d data.txt
+- 'base64' , a type of encoding where characters are assigned a digit between 0-63
+- '-d' , decode
+
+# Level 11
+Level 12 password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+GROozWPO8QyN0mGrjUkID0WCYkZiQxrN
+
+Notes:
+- cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+- 'tr' , translate set 'A-Za-z' into 'N-ZA-Mn-za-m'
+- We translate because characters have been ciphered using ROT13
+- ROT13 is a simple letter substitution cipher where a character is replaced with the 13th letter after it in the alphabet
+
+# Level 12
+Level 13 password: qQYQiHOBPR8zR61qxYqX45quvihF2uzk
+
+Notes:
+- Damn that was pretty hard/repetitive
+- Essentially needed to use gzip, bzip2, and tar command to uncompress/decode the files
+	- One mistake that I made was naming the desired output file a .txt even though the output was not a text file. I realised this and ended up just naming the output files data[1-8]. The system would automatically find out what type of file they were.
+- Used the file command to display what kind of files we had.
+
+Commands used:
+
+```shell
+   75  cat data.txt
+
+   76  mkdir /temp/working_dir
+
+   77  mkdir /tmp/working_dir
+
+   78  cd /tmp/working_dir
+
+   79  ls
+
+   80  cd ~
+
+   81  ls
+
+   82  cp data.txt /tmp/working_dir
+
+   83  cd /tmp/working_dir
+
+   84  ls
+
+   85  cat data.txt
+
+   86  file data.txt
+
+   87  xxd -r datat.txt data2.txt
+
+   88  xxd -r data.txt data2.txt
+
+   89  cat data2.txt
+
+   90  mv data2.txt data2
+
+   91  ls
+
+   92  file dat2
+
+   93  file data2
+
+   94  gzip -d data2 > data3
+
+   95  gzip -d data2 data3
+
+   96  gzip -dc data2 data3
+
+   97  ls
+
+   98  file data3
+
+   99  rm data3
+
+  100  gzip -dc dat2 > dat3
+
+  101  gzip -dc data2 > data3
+
+  102  file data3
+
+  103  bzip2 -dc data2 > data3
+
+  104  bzip2 -dc data3 > data4
+
+  105  cat data 3
+
+  106  cat data3
+
+  107  rm data3
+
+  108  gzip-dc data2 data3
+
+  109  gzip -dc data2 data3
+
+  110  gzip -dc data2 >  data3
+
+  111  cat data 3
+
+  112  cat data3
+
+  113  cat data2
+
+  114  file .
+
+  115  file./*
+
+  116  file ./*
+
+  117  rm data4
+
+  118  rm data3
+
+  119  gzip -dc data2 > data3
+
+  120  cat data3
+
+  121  file data3
+
+  122  bzip2 -dc data3 > data4
+
+  123  file ./*
+
+  124  gzip -dc data4 > data5
+
+  125  file ./*
+
+  126  tar -xf data5 data6
+
+  127  tar -xf data5 >  data6
+
+  128  file ./*
+
+  129  rm data6
+
+  130  cat data5.bin
+
+  131  tar -xf data5.bin
+
+  132  ls
+
+  133  tar -xf data6.bin
+
+  134  ls
+
+  135  tar -xf data8.bin
+
+  136  ls
+
+  137  file ./*
+
+  138  gzip -dc data8.bin > data9
+
+  139  file ./*
+
+  140  cat data9
+
+  141  history
+```
+
+# Level 13
+Level 14 password: For this level there isn't actually a flag that represents the password. In order to login to level 14 you have to ssh using a private key.
+
+*Post note: the password for level 14 is stored in /etc/bandit_pass/bandit14. The permissions are enabled for bandit14 to see, which we use for the next level*
+
+Notes:
+- Used scp to securely copy the private ssh key from the bandit13 account onto my local computer.
+- Opened the local computer current working directory to check that the file was copied properly
+- Changed the permissions of the private key so that the owner (me) can read and write it
+- Used the private ssh key to log in to bandit14 
+
+Commands used in localhost (not bandit server):
+
+``` Shell
+ 1013  scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private .
+
+ 1014  open .
+
+ 1015  chmod 600 ./sshkey.private
+
+ 1016  ssh -i ./sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+```
+
+# Level 14
+Level 15 password: pbLYuZtTg4MgaqfJx8jbA9gKKGqM68A7
+
+Notes: 
+- Found the level 14 password in /etc/bandit_pass/bandit14
+- Submitted that password to the service listening on port 30000 on the localhost of bandit14
+- The service returned the password for level 15.
+
+Commands used:
+``` Shell
+   22  cat /etc/bandit_pass/bandit14
+
+   23  nc localhost 30000
+```
+
+# Level 15
+Level 16 password: kS0Hf0u5HiXFwKMKFqXvPdOTNGGa0X8V
+
+Notes:
+- Same thing as level 14, found the password of the current level
+- s_client  
+	- This implements a generic SSL/TLS client which can establish a transparent connection to a remote server speaking SSL/TLS. It’s intended for testing purposes only and provides only rudimentary interface functionality but internally uses mostly all functionality of the OpenSSL ssl library.
+- I assume that on the localhost of bandit15 on port 30001, there is a SSL/TLS server waiting for a SSL/TLS client to attempt to connect. We use the ``openssl s_client`` command to create a SSL/TLS client to connect to the local host on port 30001. We then submit the password for the current level and the server responds with the password for the next level.
+
+Command used:
+``` Shell
+    3  cat /etc/bandit_pass/bandit15
+
+    6  openssl s_client -help
+
+    7  openssl s_client localhost:30001
+```
+
+# Level 16
+Level 17 password: 
